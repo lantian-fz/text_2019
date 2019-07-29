@@ -148,7 +148,7 @@ void Show(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y,int* blank)
 				{
 					if (show[i][j] == '*')
 					{
-						(*blank)--;
+						//(*blank)--;
 						Show(mine, show, i, j, blank);
 					}
 				}

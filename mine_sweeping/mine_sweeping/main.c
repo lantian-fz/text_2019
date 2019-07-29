@@ -10,7 +10,7 @@ void game()
 	Print(show, ROW, COL);
 
 	Laymine(mine, ROW, COL);//·ÅÖÃÀ×
-	Print(mine, ROW, COL);
+	//Print(mine, ROW, COL);
 	Sweep(mine, show, ROW, COL);//É¨À×
 }
 
