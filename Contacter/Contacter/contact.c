@@ -29,6 +29,7 @@ void AddContact(Contact *con)
 		scanf("%s", con->data[con->sz].addr);
 		con->sz++;
 	}
+	printf("\n");
 }
 
 void ShowContact(Contact *con)
@@ -41,6 +42,7 @@ void ShowContact(Contact *con)
 		printf("%10s %10d %10s %15s %20s\n", con->data[i].name, con->data[i].age,
 			con->data[i].sex, con->data[i].phone, con->data[i].addr);
 	}
+	printf("\n");
 }
 
 static int FindData(Contact *con, char name[])
@@ -81,6 +83,7 @@ void DelContact(Contact *con)
 			printf("É¾³ý³É¹¦£¡\n");
 		}
 	}
+	printf("\n");
 }
 
 void SearchContact(Contact *con)
@@ -99,6 +102,7 @@ void SearchContact(Contact *con)
 		printf("%10s %10d %10s %15s %20s\n", con->data[ret].name, con->data[ret].age,
 			con->data[ret].sex, con->data[ret].phone, con->data[ret].addr);
 	}
+	printf("\n");
 }
 
 void ModMenu()
@@ -152,6 +156,7 @@ void ModifyContact(Contact *con)
 			}
 		} while (input);
 	}
+	printf("\n");
 }
 
 void SortMenu()
@@ -187,4 +192,5 @@ void SortContact(Contact *con)
 			break;
 		}
 	}while (input);
+	printf("\n");
 }

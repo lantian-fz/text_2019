@@ -42,9 +42,11 @@ int main()
 			ModifyContact(&tmp);
 			break;
 		case 5:
+			printf("\n");
 			ShowContact(&tmp);
 			break;
 		case 6:
+			printf("\n");
 			SortContact(&tmp);
 			break;
 		case 0:
@@ -54,8 +56,6 @@ int main()
 			break;
 		}
 	} while (input);
-
-
 
 	printf("\n");
 	system("pause");

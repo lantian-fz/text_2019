@@ -10,8 +10,8 @@ static int Name(const void* e1, const void* e2)
 void SortName(Contact *con)
 {
 	assert(con);
-	qsort(con->data->name, con->sz, sizeof(con->data[0]), Name);
-	printf("排序成功！\n");
+	qsort(con->data, con->sz, sizeof(con->data[0]), Name);
+	printf("排序成功！\n\n");
 }
 
 static int Age(const void* e1, const void* e2)
@@ -22,8 +22,8 @@ static int Age(const void* e1, const void* e2)
 void SortAge(Contact *con)
 {
 	assert(con);
-	qsort(&(con->data->age), con->sz, sizeof(con->data[0]), Age);
-	printf("排序成功！\n");
+	qsort(con->data, con->sz, sizeof(con->data[0]), Age);
+	printf("排序成功！\n\n");
 }
 
 static int Phone(const void* e1, const void* e2)
@@ -34,6 +34,6 @@ static int Phone(const void* e1, const void* e2)
 void SortPhone(Contact *con)
 {
 	assert(con);
-	qsort(con->data->phone, con->sz, sizeof(con->data[0]), Phone);
-	printf("排序成功！\n");
+	qsort(con->data, con->sz, sizeof(con->data[0]), Phone);
+	printf("排序成功！\n\n");
 }
