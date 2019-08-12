@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
+#include <Windows.h>
 
 #define NAME_MAX 20
 #define SEX_MAX 5
@@ -31,6 +32,7 @@ void DelContact(Contact *con);
 void SearchContact(Contact *con);
 void ModifyContact(Contact *con);
 void SortContact(Contact *con);
+void EmptyContact(Contact *con);
 
 void ModName(Contact *con, int ret);
 void ModAge(Contact *con, int ret);

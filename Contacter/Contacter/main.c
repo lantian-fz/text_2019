@@ -8,7 +8,7 @@ void menu()
 	printf("*   1.add     2.del     *\n");
 	printf("*   3.search  4.modify  *\n");
 	printf("*   5.show    6.sort    *\n");
-	printf("*   0.exit              *\n");
+	printf("*   7.empty   0.exit    *\n");
 
 }
 
@@ -48,6 +48,9 @@ int main()
 		case 6:
 			printf("\n");
 			SortContact(&tmp);
+			break;
+		case 7:
+			EmptyContact(&tmp);
 			break;
 		case 0:
 			break;

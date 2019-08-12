@@ -29,7 +29,10 @@ void AddContact(Contact *con)
 		scanf("%s", con->data[con->sz].addr);
 		con->sz++;
 	}
-	printf("\n");
+	system("cls");
+	printf("添加联系人成功！\n");
+	Sleep(1500);
+	system("cls");
 }
 
 void ShowContact(Contact *con)
@@ -80,7 +83,10 @@ void DelContact(Contact *con)
 				con->data[i] = con->data[i + 1];
 			}
 			con->sz--;
+			system("cls");
 			printf("删除成功！\n");
+			Sleep(1500);
+			system("cls");
 		}
 	}
 	printf("\n");
@@ -193,4 +199,12 @@ void SortContact(Contact *con)
 		}
 	}while (input);
 	printf("\n");
+}
+
+void EmptyContact(Contact *con)
+{
+	assert(con);
+	con->sz = 0;
+	memset(con->data, 0, MAX*sizeof(Person));
+	printf("已清空！\n\n");
 }
