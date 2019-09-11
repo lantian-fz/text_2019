@@ -2,38 +2,32 @@
 
 #include "SeqList.h"
 
-void SListInit(List *seq)//初始化
+void SListInit(List *head)//初始化
 {
-	assert(seq);
-	SListNode *s = (SListNode*)malloc(sizeof(SListNode));
-	if (s == NULL)
-		return;
-	s->data = 1;
-	s->data = 1;
-	s->next = NULL;
+	assert(head);
+	*head = NULL;
 }
 
-void SListPushBack(List *seq)//尾插法
+void SListPushBack(List *head)//尾插法
 {
-	assert(seq);
-	SListNode *p = seq;
-	for (int i = 1; i <= 10; i++)
-	{
-		SListNode *tmp = (SListNode*)malloc(sizeof(SListNode));
-		if (tmp == NULL)
-			return;
-		tmp->data = i;
-		tmp->next = NULL;
-		p->next = tmp;
+	*head = (SListNode*)malloc(sizeof(SListNode));
+	assert(*head);
+	(*head)->data = 1;
+	(*head)->next = NULL;
 
-		p = tmp;
+	SListNode *p = *head;
+	for (int i = 2; i <= 10; i++)
+	{
+		SListNode *s = (SListNode*)malloc(sizeof(SListNode));
+		assert(s);
+
 	}
 }
 
-void SListShow(List *seq)//显示
+void SListShow(List *head)//显示
 {
-	assert(seq);
-	SListNode *p = seq;
+	assert(head);
+	SListNode *p = head;
 	while (p->next != NULL)
 	{
 		printf("%d ", p->data);

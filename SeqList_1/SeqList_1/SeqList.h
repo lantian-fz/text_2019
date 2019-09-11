@@ -13,8 +13,8 @@ typedef struct SListNode
 
 typedef SListNode *List;
 
-void SListInit(List *seq);//初始化
-void SListPushBack(List *seq);//尾插法
-void SListShow(List *seq);//显示
+void SListInit(List *head);//初始化
+void SListPushBack(List *head);//尾插法
+void SListShow(List *head);//显示
 
 #endif
