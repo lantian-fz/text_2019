@@ -2,34 +2,45 @@
 
 #include "SeqList.h"
 
+SListNode* SListPush(int x)
+{
+	SListNode *s = (SListNode*)malloc(sizeof(SListNode));
+	assert(s);
+	s->data = x;
+	s->next = NULL;
+	return s;
+}
 void SListInit(List *head)//初始化
 {
-	assert(head);
-	*head = NULL;
+	*head = SListPush(0);
 }
 
 void SListPushBack(List *head)//尾插法
 {
-	*head = (SListNode*)malloc(sizeof(SListNode));
-	assert(*head);
-	(*head)->data = 1;
-	(*head)->next = NULL;
-
-	SListNode *p = *head;
-	for (int i = 2; i <= 10; i++)
+	int x = 0;
+	SListNode *p = *head; 
+	printf("请输入整数（以-1结束）：");
+	while(x != -1)
 	{
-		SListNode *s = (SListNode*)malloc(sizeof(SListNode));
+		scanf("%d", &x);
+		if (x == -1)
+			break;
+		SListNode *s = SListPush(x);
 		assert(s);
+		p->next = s;
+		p = s;
+	} 
 
-	}
 }
 
 void SListShow(List *head)//显示
 {
-	assert(head);
-	SListNode *p = head;
-	while (p->next != NULL)
+	//assert(head);
+	SListNode *p = (*head)->next;
+	while (p!= NULL)
 	{
 		printf("%d ", p->data);
+		p = p->next;
 	}
+	printf("\n");
 }

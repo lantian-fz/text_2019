@@ -9,9 +9,7 @@ typedef struct SListNode
 {
 	int data;
 	struct SListNode *next;
-}SListNode;
-
-typedef SListNode *List;
+}SListNode,*List;
 
 void SListInit(List *head);//≥ı ºªØ
 void SListPushBack(List *head);//Œ≤≤Â∑®
