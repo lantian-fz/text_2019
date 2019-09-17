@@ -13,6 +13,9 @@ typedef struct SListNode
 
 void SListInit(List *head);//初始化
 void SListPushBack(List *head);//尾插法
+void SListPushFront(List *head);//头插法
 void SListShow(List *head);//显示
+void SListLenth(List *head);//求表长
+
 
 #endif

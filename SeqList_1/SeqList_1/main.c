@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-//不带头节点的单链表
+//带头节点的单链表
 #include "SeqList.h"
 
 void menu()
@@ -15,7 +15,7 @@ void menu()
 
 void test()
 {
-	SListNode my_SList;
+	SListNode *my_SList;
 	int input = 0;
 	SListInit(&my_SList);
 
@@ -30,12 +30,13 @@ void test()
 			SListPushBack(&my_SList);
 			break;
 		case 2:
-
+			SListPushFront(&my_SList);
 			break;
 		case 3:
 			SListShow(&my_SList);
 			break;
 		case 4:
+			SListLenth(&my_SList);
 			break;
 		case 5:
 			break;
