@@ -85,3 +85,82 @@ void SListLenth(List *head)//求表长
 	}
 	printf("表长 = %d\n", x);
 }
+static void DelMenu()
+{
+	printf("           选项\n");
+	printf("*      1.删除后继节点       *\n");
+	printf("*      2.删除指定节点       *\n");
+	printf("*      3.删除指定位置节点   *\n");
+	printf("*      0.退出               *\n");
+}
+
+void SListDel(List *head)//删除节点
+{
+	assert(head);
+	int input = 0;
+	do
+	{
+		DelMenu();
+		printf("请选择：");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			SListDelBack(head);
+			break;
+		case 2:
+			SListDelSelf(head);
+			break;
+		case 3:
+			SListDelSite(head);
+			break;
+		case 0:
+			break;
+		default:
+			printf("没有这个选项！\n");
+			break;
+		}
+	} while (input);
+}
+
+void SListPushSite(List *head)//往指定位置插入节点
+{
+	assert(head);
+	SListNode *p = *head;
+	int count = 0;
+	int num = 0;
+	printf("请输入要插入节点的位置和要插入的节点：");
+	scanf("%d %d", &count, &num);
+	count--;
+	while (count--)
+	{
+		p = p->next;
+	}
+	SListNode *s = (SListNode*)malloc(sizeof(SListNode));
+	assert(s);
+	s->data = num;
+	s->next = p->next;
+	p->next = s;
+}
+
+void SListReverse(List *head)//逆置链表
+{
+	assert(head);
+	int n = 0;
+	SListNode *p = (*head)->next;
+	SListNode *q = (*head)->next;
+	if (p == NULL)
+		return;
+
+	while (q != NULL)
+	{
+		q = q->next;
+		n++;
+		if (n == 1)
+			p->next = NULL;
+		else
+			p->next = (*head)->next;
+		(*head)->next = p;
+		p = q;
+	}
+}

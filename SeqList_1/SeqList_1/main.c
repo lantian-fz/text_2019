@@ -8,9 +8,9 @@ void menu()
 	printf("*   1.尾插法  2.头插法   *\n");
 	printf("*   3.显示    4.求表长   *\n");
 	printf("*   5.删除    6.插入     *\n");
-	printf("*   5.逆置    6.修改     *\n");
-	printf("*   7.排序    8.查找     *\n");
-	printf("*   9.清空    0.退出     *\n");
+	printf("*   7.逆置    8.修改     *\n");
+	printf("*   9.排序    10.查找     *\n");
+	printf("*   11.清空    0.退出     *\n");
 }
 
 void test()
@@ -39,10 +39,13 @@ void test()
 			SListLenth(&my_SList);
 			break;
 		case 5:
+			SListDel(&my_SList);
 			break;
 		case 6:
+			SListPushSite(&my_SList);
 			break;
 		case 7:
+			SListReverse(&my_SList);
 			break;
 		case 8:
 			break;
