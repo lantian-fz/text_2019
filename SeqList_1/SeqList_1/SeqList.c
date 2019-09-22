@@ -164,3 +164,72 @@ void SListReverse(List *head)//逆置链表
 		p = q;
 	}
 }
+
+//void SListSort(List *head)//排序
+//{
+//	assert(head);
+//	if ((*head)->next == NULL || (*head)->next->next == NULL)
+//		return;
+//	else
+//	{
+//		SListNode *p = (*head)->next;
+//		SListNode *q = p->next;
+//		while (q->next != NULL)
+//		{
+//			p = (*head)->next;
+//			while ((p->next != NULL) && (p->data < q->data))
+//			{
+//				p = p->next;
+//			}
+//			if (p->data<q->data)
+//			{
+//				p->next = q;
+//				q = q->next;
+//				p = p->next;
+//				p->next = NULL;
+//			}
+//			else
+//			{
+//
+//			}
+//			//if (p->data > q->data)
+//			//{
+//			//	p->next = q;
+//			//	q = q->next;
+//			//	p = p->next;
+//			//	p->next = NULL;
+//			//}
+//			//else
+//			//{
+//
+//			//}
+//		}
+//	}
+//}
+
+void SListEnter(List *head)//清空链表
+{
+	if (head == NULL)
+	{
+		printf("链表已空！\n");
+		return;
+	}
+	else
+	{
+		while ((*head)->next != NULL)
+		{
+			SListNode *r = (*head)->next;
+			(*head)->next = r->next;
+			free(r);
+			r = NULL;
+		}
+		//printf("已清空！\n");
+	}
+}
+
+void SListEnterHead(List *head)//销毁
+{
+	if (*head != NULL)
+		free(*head);
+	*head = NULL;
+}

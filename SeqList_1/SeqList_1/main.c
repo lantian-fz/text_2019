@@ -8,9 +8,8 @@ void menu()
 	printf("*   1.尾插法  2.头插法   *\n");
 	printf("*   3.显示    4.求表长   *\n");
 	printf("*   5.删除    6.插入     *\n");
-	printf("*   7.逆置    8.修改     *\n");
-	printf("*   9.排序    10.查找     *\n");
-	printf("*   11.清空    0.退出     *\n");
+	printf("*   7.逆置    8.清空     *\n");
+	printf("*        0.退出          *\n");
 }
 
 void test()
@@ -47,11 +46,12 @@ void test()
 		case 7:
 			SListReverse(&my_SList);
 			break;
-		case 8:
-			break;
 		case 9:
+			SListEnter(&my_SList);
 			break;
 		case 0:
+			SListEnter(&my_SList);
+			SListEnterHead(&my_SList);
 			break;
 		default:
 			printf("没有这个选项！\n");
