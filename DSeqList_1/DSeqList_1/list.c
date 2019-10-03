@@ -4,7 +4,7 @@
 
 DListNode *Node(DataType x)
 {
-	DListNode *s = (DListNode*)malloc(sizeof(DataType));
+	DListNode *s = (DListNode*)malloc(sizeof(DListNode));
 	assert(s);
 	s->data = x;
 	s->prev = NULL;
@@ -61,4 +61,74 @@ void DListShow(DList *list)//显示双向链表
 size_t DListLen(DList *list)//求表长
 {
 	return list->size;
+}
+
+DListNode *DListFindData(DList *list, DataType x)//按值查找元素
+{
+	assert(list);
+	DListNode *p = list->first->next;
+	while (p!=NULL)
+	{
+		if (p->data == x)
+			return p;
+		p = p->next;
+	}
+	return p;
+}
+
+DListNode *DListFindSite(DList *list, size_t x)//按位置查找
+{
+	assert(list);
+	DListNode *p = list->first;
+	if (x > list->size)
+		return NULL;
+	while (x--)
+		p = p->next;
+	return p;
+}
+
+int DListPushRear(DList *list, DListNode *s, DataType key)//后插运算
+{
+	DListNode *p = Node(key);
+	if (s == NULL)
+		return 0;
+	if (s->next != NULL)
+	{
+		p->next = s->next;
+		s->next->prev = p;
+		s->next = p;
+		p->prev = s;
+		list->size++;
+	}
+	else
+		DListPushBack(list, key);
+	return 1;
+}
+
+int DListPushFormer(DList *list, DListNode *s, DataType key)//前插运算
+{
+	DListNode *p = Node(key);
+	if (s == NULL)
+		return 0;
+	s->prev->next = p;
+	p->prev = s->prev;
+	s->prev = p;
+	p->next = s;
+	list->size++;
+	return 1;
+}
+
+int DListPushSite(DList *list, size_t x, DataType key)//按位置插入
+{
+	if (x == list->size + 1)
+		DListPushBack(list, key);
+	else
+	{
+		DListNode *q = DListFindSite(list, x);
+		if (q == NULL)
+			return 0;
+		else
+			DListPushFormer(list, q, key);
+	}
+	return 1;
 }
