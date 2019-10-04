@@ -11,8 +11,9 @@ void Menu()
 	printf("*   7.按位置插入    8.排序       *\n");
 	printf("*   9.按位置查找    10.逆置      *\n");
 	printf("*   11.按元素查找   12.按位置删  *\n");
-	printf("*   13.按元素删除   14.删除本身  *\n");
-	printf("*   15.清空         0.退出       *\n");
+	printf("*   13.按元素删除   14.清空      *\n");
+	printf("*   15.按位置修改   16.修改元素  *\n");
+	printf("*   17.销毁         0.退出       *\n");
 }
 
 int main()
@@ -22,7 +23,8 @@ int main()
 	DListInit(&mylist);
 	do
 	{
-		DataType x = 0;
+		int k = 0;
+		size_t x = 0;
 		DataType key = 0;
 		DListNode *p = NULL;
 
@@ -87,6 +89,7 @@ int main()
 				printf("此位置的元素为 %u\n", p->data);
 			break;
 		case 10:
+			DListReverse(&mylist);
 			break;
 		case 11:
 			printf("请输入要查找的元素：");
@@ -98,13 +101,44 @@ int main()
 				printf("找到元素 %u\n", p->data);
 			break;
 		case 12:
+			printf("请输入要删除的位置：");
+			scanf("%u", &x);
+			if (DListSiteDelete(&mylist, x) == 0)
+				printf("删除失败，要删除的位置没有元素\n");
+			else
+				printf("删除成功\n");
 			break;
 		case 13:
+			printf("请输入要删除的元素：");
+			scanf("%u", &key);
+			k = DListDataDelete(&mylist, key);
+			if (k == 0)
+				printf("删除失败，没有这个元素\n");
+			else
+				printf("删除成功，删除元素个数为 %d 个\n", k);
 			break;
 		case 14:
+			DListEmpty(&mylist);
 			break;
 		case 15:
+			printf("请输入要修改的位置及修改后的元素：");
+			scanf("%u %u", &x, &key);
+			if (DListSiteAlter(&mylist, x, key) == 0)
+				printf("输入位置有误，修改失败！\n");
+			else
+				printf("修改成功！\n");
 			break;
+		case 16:
+			printf("请输入要修改的元素及修改后的元素：");
+			scanf("%u %u", &x, &key);
+			k = DListDataAlter(&mylist, x, key);
+			if (k == 0)
+				printf("修改失败，没有找到要修改的元素\n");
+			else
+				printf("修改成功，修改元素个数为 %d 个\n", k);
+			break;
+		case 17:
+			DListEmptyPlus(&mylist);
 		case 0:
 			break;
 		default:
@@ -113,6 +147,6 @@ int main()
 	} while (input);
  
 	printf("\n");
-	//system("pause");
+	system("pause");
 	return 0;
 }
