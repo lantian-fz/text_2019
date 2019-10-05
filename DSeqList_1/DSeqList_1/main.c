@@ -78,6 +78,7 @@ int main()
 				printf("插入成功！\n");
 			break;
 		case 8:
+			DListSort(&mylist);
 			break;
 		case 9:
 			printf("请输入要查找的位置：");

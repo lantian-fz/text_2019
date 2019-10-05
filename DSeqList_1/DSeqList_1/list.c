@@ -283,7 +283,7 @@ void DListSort(DList *list)//ÅÅÐò
 {
 	assert(list);
 	assert(list->first);
-	if (list->size = 0 || list->size == 1)
+	if (list->size == 0 || list->size == 1)
 		return;
 	else
 	{
@@ -293,7 +293,25 @@ void DListSort(DList *list)//ÅÅÐò
 		p->next = NULL;
 		while (q != NULL)
 		{
-
+			DListNode *tmp = list->first->next;
+			p = q;
+			q = q->next;
+			while (tmp != NULL && tmp->data < p->data)
+				tmp = tmp->next;
+			if (tmp == NULL)
+			{
+				p->prev = list->last;
+				list->last->next = p;
+				list->last = p;
+				p->next = NULL;
+			}
+			else
+			{
+				p->next = tmp;
+				p->prev = tmp->prev;
+				tmp->prev = p;
+				p->prev->next = p;	
+			}
 		}
 	}
 }
