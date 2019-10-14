@@ -16,7 +16,7 @@ typedef struct bucket_node
 
 bucket_node hash_table[P];
 
-//void Init(bucket_node *ha[P], int sz);
+void Init();
 
 int insert_new_element(int new_element);
 
