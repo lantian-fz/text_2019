@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
 #include "bintree.h"
-
+//测试数据  ABC..DE..F..G.H..
 int main()
 {
 	BinTree bt;
@@ -17,6 +17,11 @@ int main()
 	printf("\n后序遍历：");
 	PostOrderRoot(&bt);
 	printf("\n");
+
+	//printf("\n层次遍历：");
+	//LevelOrderRoot(&bt);
+	//printf("\n");
+
 	system("pause");
 	return 0;
 }

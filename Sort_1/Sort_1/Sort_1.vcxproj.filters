@@ -18,15 +18,12 @@
     <ClCompile Include="main.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="bintree.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="queue.c">
+    <ClCompile Include="sort.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bintree.h">
+    <ClInclude Include="sort.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

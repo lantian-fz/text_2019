@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4F6E46E7-BB08-41D4-AD1B-7133D9310CE6}</ProjectGuid>
-    <RootNamespace>BinTree_1</RootNamespace>
+    <ProjectGuid>{008D490F-1968-4DD2-899A-2E34462ABE46}</ProjectGuid>
+    <RootNamespace>Sort_1</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,12 +64,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bintree.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="queue.c" />
+    <ClCompile Include="sort.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bintree.h" />
+    <ClInclude Include="sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

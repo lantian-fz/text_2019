@@ -16,7 +16,21 @@ typedef struct BinTree
 {
 	BinTreeNode *root;
 }BinTree;
-
+//
+//typedef char Datatype;
+//
+//typedef struct Queue
+//{
+//	Datatype data;
+//	struct Queue *next;
+//}Queue;
+//
+//typedef struct LQueue
+//{
+//	size_t sz;
+//	Queue *front;
+//	Queue *rear;
+//}LinkQueue;
 
 void BinTreeInit(BinTree *pbt);//初始化
 void BinTreeRoot(BinTree *pbt);
@@ -25,5 +39,11 @@ void BinTreeCreate(BinTreeNode **t);//创建二叉树
 void PreOrderRoot(BinTree *pbt);//先序遍历
 void InOrderRoot(BinTree *pbt);//中序遍历
 void PostOrderRoot(BinTree *pbt);//后序遍历
+void LevelOrderRoot(BinTree *pbt);//层次遍历
+
+
+//void LQueueInit(LinkQueue *q);//初始化
+//void LQueueEnter(LinkQueue *q, Datatype x);//入队
+//int LQueueDelete(LinkQueue *q, Datatype *x);//出队
 
 #endif

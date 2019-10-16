@@ -70,3 +70,29 @@ void PostOrderRoot(BinTree *pbt)//后序遍历
 {
 	PostOrder(&pbt->root);
 }
+//
+//void LevelOrder(BinTreeNode **t)//层次遍历
+//{
+//	BinTreeNode *rt = *t;
+//	LinkQueue qu;
+//	Datatype x = 0;
+//	LinkQueue *q = &qu;
+//	LQueueInit(&qu);//初始化队列
+//	if (rt == NULL)
+//		return;
+//	LQueueEnter(&qu, rt->data);//根节点入队
+//	while (q->front->next)
+//	{
+//		if (LQueueDelete(&qu, &x))
+//			printf("%c\n", x);
+//		if (rt->leftChild)
+//			LQueueEnter(&qu, rt->leftChild->data);//左孩子入队
+//		if (rt->rightChild)
+//			LQueueEnter(&qu, rt->rightChild->data);//右孩子入队
+//	}
+//}
+//
+//void LevelOrderRoot(BinTree *pbt)//层次遍历
+//{
+//	LevelOrder(&pbt->root);
+//}
