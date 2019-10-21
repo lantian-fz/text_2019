@@ -81,6 +81,46 @@ void BinInsertSort(int *arr, int left, int right)//二分插入排序
 	}
 }
 
+void TwoWayInsertSort(int *arr, int left, int right)//二路插入排序
+{
+	int sz = right - left + 1;
+	int *tmp = (int*)malloc(sizeof(int)*sz);
+	int start = 0;//起点
+	int final = 0;//终点
+	tmp[0] = arr[left];
+
+	for (int i = left + 1; i <= right; i++)
+	{
+		if (arr[i] < tmp[start])
+		{
+			start = (start - 1 + sz) % sz;
+			tmp[start] = arr[i];
+		}
+		else if (arr[i]>tmp[final])
+		{
+			final++;
+			tmp[final] = arr[i];
+		}
+		else
+		{
+			int end = final;
+			final++;
+			while (arr[i] < tmp[end])
+			{
+				tmp[(end + 1) % sz] = tmp[end];
+				end = (end - 1 + sz) % sz;
+			}
+			tmp[(end + 1) % sz] = arr[i];
+		}
+	}
+
+	for (int i = 0; i < sz; i++)
+	{
+		arr[i] = tmp[start];
+		start = (start + 1) % sz;
+	}
+}
+
 void TestSort()//排序速度比较
 {
 	int n = 10000;
@@ -93,10 +133,12 @@ void TestSort()//排序速度比较
 	size_t begin2 = 0;
 	size_t begin3 = 0;
 	size_t begin4 = 0;
+	size_t begin5 = 0;
 	size_t end1 = 0;
 	size_t end2 = 0;
 	size_t end3 = 0;
 	size_t end4 = 0;
+	size_t end5 = 0;
 
 	srand((unsigned)time(0));
 	for (int i = 0; i < n; ++i)
@@ -105,7 +147,7 @@ void TestSort()//排序速度比较
 		a2[i] = a1[i];
 		a3[i] = a1[i];
 		a4[i] = a1[i];
-		//a5[i] = a1[i];
+		a5[i] = a1[i];
 	}
 
 	begin1 = clock();
@@ -127,4 +169,9 @@ void TestSort()//排序速度比较
 	BinInsertSort(a4, 0, n - 1);
 	end4 = clock();
 	printf("BinInsertSort: %u\n", end4 - begin4);
+
+	begin5 = clock();
+	TwoWayInsertSort(a5, 0, n - 1);
+	end5 = clock();
+	printf("TwoWayInsertSort: %u\n", end5 - begin5);
 }
