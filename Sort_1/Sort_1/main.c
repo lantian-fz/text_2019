@@ -8,12 +8,18 @@ int main()
 	int sz = sizeof(arr1) / sizeof(arr1[0]);
 	
 	//InsertionSort1(arr1, 0, sz - 1);
-	//Print(arr1, sz);
+	//Print(arr1, 0, sz - 1);
 	//InsertionSort2(arr1, 0, sz - 1);
-	//Print(arr1, sz);
+	//Print(arr1, 0, sz - 1);
 
-	InsertionSort3(arr1, 0, sz - 1);
-	Print(arr1, sz);
+	//InsertionSort3(arr1, 0, sz - 1);
+	//Print(arr1, 1, sz - 1);
+
+	BinInsertSort(arr1, 0, sz - 1);
+	Print(arr1, 0, sz - 1);
+
+
+	TestSort();
 
 	printf("\n");
 	system("pause");
