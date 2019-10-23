@@ -22,6 +22,8 @@ void LQueueInit(LinkQueue *q)//初始化
 void LQueueEnter(LinkQueue *q, Datatype x)//入队
 {
 	Queue *s = Node(x);
+	if (q->front->next == NULL)
+		q->front->next = s;
 	q->rear->next = s;
 	q->rear = s;
 	q->sz++;
