@@ -18,9 +18,9 @@ int main()
 	PostOrderRoot(&bt);
 	printf("\n");
 
-	//printf("\n层次遍历：");
-	//LevelOrderRoot(&bt);
-	//printf("\n");
+	printf("\n层次遍历：");
+	LevelOrderRoot(&bt);
+	printf("\n");
 
 	system("pause");
 	return 0;
