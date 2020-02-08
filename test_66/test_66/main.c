@@ -28,7 +28,7 @@ void main()
 	int arr[] = { -4, -1, 0, 3, 10 };
 	int sz1 = sizeof(arr) / sizeof(arr[0]);
 	int sz2 = 0;
-	//int *p = (int*)malloc(sizeof(int)*sz1);
+	
 	int *p = sortedSquares(arr, sz1, &sz2);
 	for (int i = 0; i < sz2; i++)
 	{
