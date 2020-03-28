@@ -17,14 +17,17 @@ int main()
 	SeqList *mySList;
 	Init(&mySList);
 	PushBack(&mySList, 1);
-	PushBack(&mySList, 1);
-	//PushBack(&mySList, 6);
-	//PushBack(&mySList, 7);
+	PushBack(&mySList, 2);
+	PushBack(&mySList, 3);
+	PushBack(&mySList, 4);
+	PushBack(&mySList, 5);
 
 	//PushFront(&mySList, 1);
 	//PushFront(&mySList, 2);
 	//PushFront(&mySList, 3);
-	DelSelf(&mySList, 1);
+	//DelSelf(&mySList, 1);
+	//SeqList *p1 = reverseList_1(&mySList);
+	SeqList *p2 = reverseList_2(&mySList,2,4);
 
 	return 0;
 }

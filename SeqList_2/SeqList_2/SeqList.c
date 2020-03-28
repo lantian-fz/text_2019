@@ -58,3 +58,70 @@ void DelSelf(SList *head, Type val)//删除指定节点
 		p = p->next;
 	}
 }
+
+SeqList* reverseList(SList *head)//翻转
+{
+	SeqList *p = *head;
+	SeqList *q = NULL;
+	if (*head == NULL || (*head)->next == NULL)
+		return *head;
+	while (p)
+	{
+		if (q == NULL)
+		{
+			q = NewNode(p->data);
+			q->next = NULL;
+		}
+		else
+		{
+			SeqList *tmp = q;
+			q = NewNode(p->data);
+			q->next = tmp;
+		}
+		p = p->next;
+	}
+	return q;
+}
+
+SeqList* reverseList_2(SList *head, int m, int n)//翻转
+{
+	SeqList *p = *head;
+	SeqList *q = NULL;
+	int i = 0;
+	if (*head == NULL || (*head)->next == NULL)
+		return *head;
+	while (p)
+	{
+		i++;
+		if (i >= m&&i <= n)
+		{
+			if (q == NULL)
+			{
+				q = NewNode(p->data);
+				q->next = NULL;
+			}
+			else
+			{
+				SeqList *tmp = q;
+				q = NewNode(p->data);
+				q->next = tmp;
+			}
+		}
+		else
+		{
+			if (q == NULL)
+			{
+				q = NewNode(p->data);
+				q->next = NULL;
+			}
+			else
+			{
+				SeqList *tmp = NewNode(p->data);
+				tmp->next = NULL;
+				q->next = tmp;
+			}
+		}
+		p = p->next;
+	}
+	return q;
+}
