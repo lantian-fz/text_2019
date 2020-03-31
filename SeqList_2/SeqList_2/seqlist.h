@@ -19,5 +19,6 @@ void PushFront(SList *head, Type x);//头插法
 void DelSelf(SList *head, Type val);//删除指定节点
 SeqList* reverseList_1(SList *head);//翻转
 SeqList* reverseList_2(SList *head, int m, int n);//翻转
+SeqList* DelNthFromEnd(SList *head, int n);//删除倒数第n个节点，并返回头节点
 
 #endif

@@ -125,3 +125,28 @@ SeqList* reverseList_2(SList *head, int m, int n)//翻转
 	}
 	return q;
 }
+
+SeqList* DelNthFromEnd(SList *head, int n)//删除倒数第n个节点，并返回头节点
+{
+	SeqList *p = *head;
+	SeqList *q = NULL;
+	while (n--)
+		p = p->next;
+	if (p != NULL)
+	{
+		p = p->next;
+		q = *head;
+		while (p)
+		{
+			p = p->next;
+			q = q->next;
+		}
+		q->next = q->next->next;
+	}
+	else
+	{
+		(*head) = (*head)->next;
+	}
+
+	return *head;
+}

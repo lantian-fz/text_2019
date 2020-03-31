@@ -27,7 +27,8 @@ int main()
 	//PushFront(&mySList, 3);
 	//DelSelf(&mySList, 1);
 	//SeqList *p1 = reverseList_1(&mySList);
-	SeqList *p2 = reverseList_2(&mySList,2,4);
+	//SeqList *p2 = reverseList_2(&mySList,2,4);
+	SeqList *p3 = DelNthFromEnd(&mySList, 1);
 
 	return 0;
 }
