@@ -7,7 +7,9 @@ void test1()
 	int len = sizeof(arr) / sizeof(arr[0]);
 	//BubbleSort_1(arr, len);
 	//Selection_1(arr, len);
-	Insertion_1(arr, len);
+	//Insertion_1(arr, len);
+	//Insertion_2(arr, len);
+	Shell_2(arr, len);
 	Print(arr, len);
 }
 
