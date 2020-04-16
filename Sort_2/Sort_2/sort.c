@@ -114,3 +114,43 @@ void Shell_2(int arr[], int len)//希尔排序 数据覆盖
 		h /= 2;//增量缩小规则
 	}
 }
+
+int *tmp = NULL;
+
+void merge(int arr[], int lo, int mid, int hi)
+{
+	int i = lo;
+	int p1 = lo;
+	int p2 = mid + 1;
+	while (p1 <= mid&&p2 <= hi)
+	{
+		if (arr[p1] < arr[p2])
+			tmp[i++] = arr[p1++];
+		else
+			tmp[i++] = arr[p2++];
+	}
+	while (p1 <= mid)
+		tmp[i++] = arr[p1++];
+	while (p2 <= hi)
+		tmp[i++] = arr[p2++];
+	for (int j = lo; j <= hi; j++)
+		arr[j] = tmp[j];
+}
+
+void MergeSort(int arr[], int lo, int hi)
+{
+	if (hi <= lo)
+		return;
+	int mid = (hi - lo) / 2 + lo;
+	MergeSort(arr, lo, mid);
+	MergeSort(arr, mid + 1, hi);
+	merge(arr, lo, mid, hi);
+}
+
+void Merge_1(int arr[], int len)//归并排序
+{
+	int lo = 0;
+	tmp = (int*)malloc(sizeof(int)*len);//辅助数组
+	int hi = len - 1;
+	MergeSort(arr, lo, hi);
+}

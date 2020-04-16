@@ -9,19 +9,21 @@ void test1()
 	//Selection_1(arr, len);
 	//Insertion_1(arr, len);
 	//Insertion_2(arr, len);
-	Shell_2(arr, len);
+	//Shell_2(arr, len);
+	Merge_1(arr, len);
 	Print(arr, len);
 }
 
 void test2()//测试速度
 {
-	int n = 100000;
+	int n = 50000;
 	int *a1 = (int *)malloc(sizeof(int)*n);
 	int *a2 = (int *)malloc(sizeof(int)*n);
 	int *a3 = (int *)malloc(sizeof(int)*n);
 	int *a4 = (int *)malloc(sizeof(int)*n);
 	int *a5 = (int *)malloc(sizeof(int)*n);
 	int *a6 = (int *)malloc(sizeof(int)*n);
+	int *a7 = (int *)malloc(sizeof(int)*n);
 	size_t begin = 0;
 	size_t end = 0;
 
@@ -34,6 +36,7 @@ void test2()//测试速度
 		a4[i] = a1[i];
 		a5[i] = a1[i];
 		a6[i] = a1[i];
+		a7[i] = a1[i];
 	}
 
 	begin = clock();
@@ -65,6 +68,11 @@ void test2()//测试速度
 	Shell_2(a6, n);
 	end = clock();
 	printf("Shell_2: %u\n", end - begin);
+
+	begin = clock();
+	Merge_1(a6, n);
+	end = clock();
+	printf("Merge_1: %u\n", end - begin);
 }
 
 int main()

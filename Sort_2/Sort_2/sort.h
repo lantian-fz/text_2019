@@ -10,6 +10,7 @@ void Insertion_1(int arr[], int len);//插入排序 直接交换
 void Insertion_2(int arr[], int len);//插入排序 数据覆盖
 void Shell_1(int arr[], int len);//希尔排序
 void Shell_2(int arr[], int len);//希尔排序 数据覆盖
+void Merge_1(int arr[], int len);//归并排序
 void swap(int *a, int *b);
 void Print(int arr[], int len);
 
