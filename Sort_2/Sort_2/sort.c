@@ -120,8 +120,9 @@ int *tmp = NULL;
 void merge(int arr[], int lo, int mid, int hi)
 {
 	int i = lo;
-	int p1 = lo;
-	int p2 = mid + 1;
+	int p1 = lo;//前半组数据的第一项
+	int p2 = mid + 1;//后半组数据的第一项
+	//对两组数据比较后赋值到辅助数组
 	while (p1 <= mid&&p2 <= hi)
 	{
 		if (arr[p1] < arr[p2])
@@ -129,10 +130,12 @@ void merge(int arr[], int lo, int mid, int hi)
 		else
 			tmp[i++] = arr[p2++];
 	}
+	//余下部分接到辅助数据后面（余下部分已排好序）
 	while (p1 <= mid)
 		tmp[i++] = arr[p1++];
 	while (p2 <= hi)
 		tmp[i++] = arr[p2++];
+	//将辅助数组中排好序的数据拷贝到原数组
 	for (int j = lo; j <= hi; j++)
 		arr[j] = tmp[j];
 }
@@ -153,4 +156,54 @@ void Merge_1(int arr[], int len)//归并排序
 	tmp = (int*)malloc(sizeof(int)*len);//辅助数组
 	int hi = len - 1;
 	MergeSort(arr, lo, hi);
+}
+
+int quick(int arr[], int lo, int hi)
+{
+	//确定分界值
+	int key = arr[lo];
+	//定义两个指针，分别指向待切分数组的最小索引处和最大索引处的下一个位置
+	int left = lo;
+	int right = hi + 1;
+
+	//切分
+	while (1)
+	{
+		//先从右往左扫描，移动right指针，找到一个比分界值小的元素停止
+		while (key < arr[--right])
+		{
+			if (right == lo)
+				break;
+		}
+		//再从左往右扫描，移动left指针，找到一个比分界值大的元素停止
+		while (key > arr[++left])
+		{
+			if (left == hi)
+				break;
+		}
+		//判断left>=right,如果是，则证明扫描完毕，结束循环，否则交换元素
+		if (left >= right)
+			break;
+		else
+			swap(&arr[left], &arr[right]);
+	}
+	//交换分界值
+	swap(&arr[lo], &arr[right]);
+	return right;
+}
+
+void QuickSort(int arr[], int lo, int hi)
+{
+	if (hi <= lo)
+		return;
+	int index = quick(arr, lo, hi);//返回分界值所在索引
+	QuickSort(arr, lo, index - 1);
+	QuickSort(arr, index + 1, hi);
+}
+
+void Quick_1(int arr[], int len)//快速排序
+{
+	int lo = 0;
+	int hi = len - 1;
+	QuickSort(arr, lo, hi);
 }

@@ -11,6 +11,7 @@ void Insertion_2(int arr[], int len);//²åÈëÅÅĞò Êı¾İ¸²¸Ç
 void Shell_1(int arr[], int len);//Ï£¶ûÅÅĞò
 void Shell_2(int arr[], int len);//Ï£¶ûÅÅĞò Êı¾İ¸²¸Ç
 void Merge_1(int arr[], int len);//¹é²¢ÅÅĞò
+void Quick_1(int arr[], int len);//¿ìËÙÅÅĞò
 void swap(int *a, int *b);
 void Print(int arr[], int len);
 

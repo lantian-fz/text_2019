@@ -5,18 +5,19 @@ void test1()
 {
 	int arr[] = { 5, 3, 1, 4, 7, 2, 6, 9, 8, 0 };
 	int len = sizeof(arr) / sizeof(arr[0]);
-	//BubbleSort_1(arr, len);
-	//Selection_1(arr, len);
-	//Insertion_1(arr, len);
+	//BubbleSort_1(arr, len); //稳定的排序
+	//Selection_1(arr, len);//不稳定的排序
+	//Insertion_1(arr, len);//稳定的排序
 	//Insertion_2(arr, len);
-	//Shell_2(arr, len);
-	Merge_1(arr, len);
+	//Shell_2(arr, len);//不稳定排序
+	//Merge_1(arr, len);//稳定的排序
+	Quick_1(arr, len);//不稳定的排序
 	Print(arr, len);
 }
 
 void test2()//测试速度
 {
-	int n = 50000;
+	int n = 10000;
 	int *a1 = (int *)malloc(sizeof(int)*n);
 	int *a2 = (int *)malloc(sizeof(int)*n);
 	int *a3 = (int *)malloc(sizeof(int)*n);
@@ -24,6 +25,7 @@ void test2()//测试速度
 	int *a5 = (int *)malloc(sizeof(int)*n);
 	int *a6 = (int *)malloc(sizeof(int)*n);
 	int *a7 = (int *)malloc(sizeof(int)*n);
+	int *a8 = (int *)malloc(sizeof(int)*n);
 	size_t begin = 0;
 	size_t end = 0;
 
@@ -37,6 +39,7 @@ void test2()//测试速度
 		a5[i] = a1[i];
 		a6[i] = a1[i];
 		a7[i] = a1[i];
+		a8[i] = a1[i];
 	}
 
 	begin = clock();
@@ -70,9 +73,14 @@ void test2()//测试速度
 	printf("Shell_2: %u\n", end - begin);
 
 	begin = clock();
-	Merge_1(a6, n);
+	Merge_1(a7, n);
 	end = clock();
 	printf("Merge_1: %u\n", end - begin);
+
+	begin = clock();
+	Quick_1(a8, n);
+	end = clock();
+	printf("Quick_1: %u\n", end - begin);
 }
 
 int main()
