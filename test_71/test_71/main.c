@@ -5,6 +5,7 @@
 //自退出那个人开始的下一个人再次从1报数，依次类推，求最后退出的那个人的编号
 #include <stdio.h>
 #include <stdlib.h>
+#include <vld.h>
 //先构造一个单向循环链表
 typedef struct Josephus
 {
@@ -17,13 +18,13 @@ void Print(JNode *first)
 	int count = 0;//计数器
 	JNode n = *first;
 	JNode before = NULL;
-	while (n != n->next)
+	while (n != n->next)//判断n是否为最后一个节点，如果不是进入循环
 	{
 		count++;
 		if (count == 3)
 		{
 			before->next = n->next;
-			printf("%d ", n->data);
+			//printf("%d ", n->data);
 			count = 0;
 			n = n->next;
 		}
@@ -40,7 +41,7 @@ int main()
 {
 	JNode first = NULL;
 	JNode pre = NULL;
-	for (int i = 1; i <= 41; i++)
+	for (int i = 1; i <= 41; i++)//创建链表
 	{
 		//如果是第一个节点
 		if (i == 1)
@@ -64,12 +65,6 @@ int main()
 			pre->next = first;
 	}
 	Print(&first);
-	while (first != first->next)
-	{
-		JNode r = first;
-		first = first->next;
-		free(r);
-		r = NULL;
-	}
+
 	return 0;
 }
